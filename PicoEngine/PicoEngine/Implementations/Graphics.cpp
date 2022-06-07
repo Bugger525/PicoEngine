@@ -2,9 +2,11 @@
 
 #include <sstream>
 
+using std::string;
+
 namespace PE
 {
-	const std::string Style(const std::string& text, Color foreground, Color background, TextStyle textStyle)
+	const string Style(const string& text, Color foreground, Color background, TextStyle textStyle)
 	{
 		std::stringstream ss;
 
@@ -13,5 +15,13 @@ namespace PE
 		else
 			ss << "\x1b[" << static_cast<int>(foreground) << ";" << static_cast<int>(background) + 10 << ";" << static_cast<int>(textStyle) << "m" << text << "\x1b[0m";
 		return ss.str();
+	}
+	Texture2D::Texture2D(const std::vector<string>& texture)
+	{
+		texture_.assign(texture.begin(), texture.end());
+	}
+	string& Texture2D::operator[](int index)
+	{
+		return texture_[index];
 	}
 }

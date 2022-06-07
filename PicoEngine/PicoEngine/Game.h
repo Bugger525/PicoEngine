@@ -37,6 +37,8 @@ namespace PE
 		bool isOpen_;
 		bool debugMode_;
 		uint frameRate_;
+
+		bool endOfInit_;
 	};
 }
 

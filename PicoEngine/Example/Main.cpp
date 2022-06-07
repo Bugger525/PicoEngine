@@ -1,7 +1,7 @@
 #include "../PicoEngine/Game.h"
 #include "../PicoEngine/Graphics.h"
+#include "../PicoEngine/Debug.h"
 #include <conio.h>
-#include <iostream>
 
 class Example : public PE::Game
 {
@@ -13,7 +13,6 @@ protected:
 
 		base::Initialize();
 
-		std::cout << PE::Style("Hello World!", PE::Color::LightYellow, PE::Color::Black, PE::TextStyle::Underline) << std::endl;
 		_getch();
 		Exit();
 	}

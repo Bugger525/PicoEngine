@@ -15,6 +15,8 @@ namespace PE
 		isOpen_ = false;
 		debugMode_ = false;
 		frameRate_ = 30;
+
+		endOfInit_ = false;
 	}
 	void Game::Run()
 	{
@@ -36,7 +38,8 @@ namespace PE
 	}
 	void Game::InitTitle(const string& title)
 	{
-		title_ = title;
+		if (!endOfInit_)
+			title_ = title;
 	}
 	void Game::SetTitle(const string& title)
 	{
@@ -49,7 +52,8 @@ namespace PE
 	}
 	void Game::InitSize(uint width, uint height)
 	{
-		size_ = { static_cast<int>(width), static_cast<int>(height) };
+		if (!endOfInit_)
+			size_ = { static_cast<int>(width), static_cast<int>(height) };
 	}
 	void Game::SetSize(uint width, uint height)
 	{
@@ -79,11 +83,13 @@ namespace PE
 	}
 	void Game::InitDebugMode(bool debugMode)
 	{
-		debugMode_ = debugMode;
+		if (!endOfInit_)
+			debugMode_ = debugMode;
 	}
 	void Game::InitFrameRate(uint frameRate)
 	{
-		frameRate_ = frameRate;
+		if (!endOfInit_)
+			frameRate_ = frameRate;
 	}
 	void Game::Exit()
 	{
@@ -110,5 +116,7 @@ namespace PE
 		GetConsoleMode(hOut, &dwMode);
 		dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
 		SetConsoleMode(hOut, dwMode);
+
+		endOfInit_ = true;
 	}
 }

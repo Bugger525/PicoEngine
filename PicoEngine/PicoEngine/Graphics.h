@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 namespace PE
 {
@@ -11,4 +12,14 @@ namespace PE
 		Gray = 90, LightRed, LightGreen, LightYellow, LightBlue, LightMagenta, LightCyan, LightWhite
 	};
 	const std::string Style(const std::string& text, Color foreground, Color background, TextStyle textStyle);
+
+	class Texture2D
+	{
+	public:
+		Texture2D(const std::vector<std::string>& texture);
+
+		std::string& operator[](int index);
+	private:
+		std::vector<std::string> texture_;
+	};
 }

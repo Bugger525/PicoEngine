@@ -27,6 +27,9 @@
     <ClCompile Include="PicoEngine\Implementations\Graphics.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PicoEngine\Implementations\Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PicoEngine\Game.h">
@@ -41,8 +44,5 @@
     <ClInclude Include="PicoEngine\Graphics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PicoEngine\Implementations\Debug.cpp" />
   </ItemGroup>
 </Project>
