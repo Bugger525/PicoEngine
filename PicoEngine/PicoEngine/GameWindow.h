@@ -5,10 +5,10 @@
 
 namespace PE
 {
-	class Game
+	class GameWindow
 	{
 	public:
-		Game();
+		GameWindow();
 
 		void Run();
 	protected:
@@ -42,4 +42,4 @@ namespace PE
 	};
 }
 
-using base = PE::Game;
+using base = PE::GameWindow;

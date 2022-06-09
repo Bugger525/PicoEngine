@@ -129,14 +129,16 @@
   <ItemGroup>
     <ClCompile Include="Example\Main.cpp" />
     <ClCompile Include="PicoEngine\Implementations\Debug.cpp" />
-    <ClCompile Include="PicoEngine\Implementations\Game.cpp" />
+    <ClCompile Include="PicoEngine\Implementations\GameWindow.cpp" />
     <ClCompile Include="PicoEngine\Implementations\Graphics.cpp" />
+    <ClCompile Include="PicoEngine\Implementations\Input.cpp" />
     <ClCompile Include="PicoEngine\Implementations\Math.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PicoEngine\Debug.h" />
-    <ClInclude Include="PicoEngine\Game.h" />
+    <ClInclude Include="PicoEngine\GameWindow.h" />
     <ClInclude Include="PicoEngine\Graphics.h" />
+    <ClInclude Include="PicoEngine\Input.h" />
     <ClInclude Include="PicoEngine\Math.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

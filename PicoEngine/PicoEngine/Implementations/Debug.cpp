@@ -18,7 +18,7 @@ namespace PE
 	}
 	void Debug::Log(const std::string& text)
 	{
-		std::cout << Style('[' + GetCurrentTime() + ']', Color::Yellow, Color::Black, TextStyle::Underline) << ' ' << text << std::endl;
+		std::cout << Style('[' + GetCurrentTime() + ']', Colors::Yellow, Colors::Black, TextStyles::Underline) << ' ' << text << std::endl;
 	}
 	void Debug::Write(const std::string& text)
 	{

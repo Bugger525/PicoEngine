@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PicoEngine\Implementations\Game.cpp">
+    <ClCompile Include="PicoEngine\Implementations\GameWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Example\Main.cpp">
@@ -30,9 +30,12 @@
     <ClCompile Include="PicoEngine\Implementations\Debug.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PicoEngine\Implementations\Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PicoEngine\Game.h">
+    <ClInclude Include="PicoEngine\GameWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PicoEngine\Math.h">
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PicoEngine\Graphics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PicoEngine\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

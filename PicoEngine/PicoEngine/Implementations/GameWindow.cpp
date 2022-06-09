@@ -1,4 +1,4 @@
-#include "../Game.h"
+#include "../GameWindow.h"
 #include <cmath>
 #include <sstream>
 #include <Windows.h>
@@ -8,7 +8,7 @@ using std::string;
 
 namespace PE
 {
-	Game::Game()
+	GameWindow::GameWindow()
 	{
 		title_ = "PicoEngine";
 		size_ = Vector2i(80, 25);
@@ -18,7 +18,7 @@ namespace PE
 
 		endOfInit_ = false;
 	}
-	void Game::Run()
+	void GameWindow::Run()
 	{
 		Initialize();
 
@@ -32,30 +32,30 @@ namespace PE
 		Cleanup();
 		exit(0);
 	}
-	const string Game::GetTitle() const
+	const string GameWindow::GetTitle() const
 	{
 		return title_;
 	}
-	void Game::InitTitle(const string& title)
+	void GameWindow::InitTitle(const string& title)
 	{
 		if (!endOfInit_)
 			title_ = title;
 	}
-	void Game::SetTitle(const string& title)
+	void GameWindow::SetTitle(const string& title)
 	{
 		title_ = title;
 		SetConsoleTitleA(title_.c_str());
 	}
-	const Vector2i& Game::GetSize() const
+	const Vector2i& GameWindow::GetSize() const
 	{
 		return size_;
 	}
-	void Game::InitSize(uint width, uint height)
+	void GameWindow::InitSize(uint width, uint height)
 	{
 		if (!endOfInit_)
 			size_ = { static_cast<int>(width), static_cast<int>(height) };
 	}
-	void Game::SetSize(uint width, uint height)
+	void GameWindow::SetSize(uint width, uint height)
 	{
 		size_ = { static_cast<int>(width), static_cast<int>(height) };
 
@@ -68,7 +68,7 @@ namespace PE
 		DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), SC_MAXIMIZE, MF_BYCOMMAND);
 		DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), SC_SIZE, MF_BYCOMMAND);
 	}
-	void Game::SetSize(const Vector2i& size)
+	void GameWindow::SetSize(const Vector2i& size)
 	{
 		size_ = size;
 
@@ -81,21 +81,21 @@ namespace PE
 		DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), SC_MAXIMIZE, MF_BYCOMMAND);
 		DeleteMenu(GetSystemMenu(GetConsoleWindow(), false), SC_SIZE, MF_BYCOMMAND);
 	}
-	void Game::InitDebugMode(bool debugMode)
+	void GameWindow::InitDebugMode(bool debugMode)
 	{
 		if (!endOfInit_)
 			debugMode_ = debugMode;
 	}
-	void Game::InitFrameRate(uint frameRate)
+	void GameWindow::InitFrameRate(uint frameRate)
 	{
 		if (!endOfInit_)
 			frameRate_ = frameRate;
 	}
-	void Game::Exit()
+	void GameWindow::Exit()
 	{
 		isOpen_ = false;
 	}
-	void Game::Initialize()
+	void GameWindow::Initialize()
 	{
 		isOpen_ = true;
 
