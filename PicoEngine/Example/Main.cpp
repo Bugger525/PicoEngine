@@ -2,9 +2,6 @@
 #include "../PicoEngine/Graphics.h"
 #include "../PicoEngine/Debug.h"
 #include "../PicoEngine/Input.h"
-#include <Windows.h>
-#include <conio.h>
-#include <string>
 
 class Example : public PE::GameWindow
 {
@@ -17,16 +14,26 @@ protected:
 
 		base::Initialize();
 
-		//Exit();
+		auto tex = PE::Texture2D(
+			{
+				PE::Style("  ^", PE::Colors::LightYellow, PE::Colors::Black, PE::TextStyles::Default),
+				PE::Style("  |", PE::Colors::Gray, PE::Colors::Black, PE::TextStyles::Default),
+				PE::Style("<-v->", PE::Colors::Gray, PE::Colors::Black, PE::TextStyles::Default),
+			});
+		// Oh shit X is including ansi characters lmao
+		PE::Debug::Write(tex.GetSize().X);
+		PE::Debug::Write(tex.GetSize().Y);
+
+		bool flag = false;
+		do
+		{
+			flag = PE::Input::GetKeyDown(PE::Keys::Any);
+		} while (flag == false);
+
+		Exit();
 	}
 	void Update(float deltaTime) override
 	{
-		PE::Debug::Log("lol");
-		if (PE::Input::GetKeyDownAsync(PE::Keys::Escape))
-		{
-			PE::Debug::WriteLine(PE::Style("!", PE::Colors::LightRed, PE::Colors::Black, PE::TextStyles::Underline));
-			Exit();
-		}
 	}
 	void Render(float deltaTime) override
 	{
@@ -34,10 +41,6 @@ protected:
 	}
 	void Cleanup() override
 	{
-		Sleep(1000);
-		_getch();
-		PE::Debug::Log(std::to_string(PE::Input::GetKeyDown(PE::Keys::Any)));
-		Sleep(5000);
 	}
 };
 int main()

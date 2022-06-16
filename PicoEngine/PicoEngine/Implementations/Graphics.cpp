@@ -24,4 +24,16 @@ namespace PE
 	{
 		return texture_[index];
 	}
+	const Vector2i Texture2D::GetSize() const
+	{
+		int x = 0;
+		for (const auto& line : texture_)
+		{
+			if (x < line.length())
+				x = line.length();
+		}
+		int y = texture_.size();
+
+		return Vector2i(x, y);
+	}
 }

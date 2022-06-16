@@ -2,18 +2,18 @@
 
 namespace PE
 {
+	// 노가다 존나 싫어
 	enum class Keys
 	{
 		Any = -1,
-		Escape = 0x1B
+		Escape = 27,
+		Space = 32,
 	};
 	class Input
 	{
 	public:
 		static bool GetKeyDown(Keys key);
-		static bool GetKeyDownAsync(Keys key);
 
-		static bool GetKeyReleased(Keys key);
-		static bool GetKeyReleasedAsync(Keys key);
+		static bool GetKeyUp(Keys key);
 	};
 }

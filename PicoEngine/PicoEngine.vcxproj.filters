@@ -50,5 +50,8 @@
     <ClInclude Include="PicoEngine\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PicoEngine\Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

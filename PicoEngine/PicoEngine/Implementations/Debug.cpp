@@ -20,12 +20,38 @@ namespace PE
 	{
 		std::cout << Style('[' + GetCurrentTime() + ']', Colors::Yellow, Colors::Black, TextStyles::Underline) << ' ' << text << std::endl;
 	}
+	void Debug::Log(int text)
+	{
+		std::cout << Style('[' + GetCurrentTime() + ']', Colors::Yellow, Colors::Black, TextStyles::Underline) << ' ' << text << std::endl;
+	}
+	void Debug::Log(float text)
+	{
+		std::cout << Style('[' + GetCurrentTime() + ']', Colors::Yellow, Colors::Black, TextStyles::Underline) << ' ' << text << std::endl;
+	}
 	void Debug::Write(const std::string& text)
 	{
 		std::cout << text;
 		std::cout.flush();
 	}
+	void Debug::Write(int text)
+	{
+		std::cout << text;
+		std::cout.flush();
+	}
+	void Debug::Write(float text)
+	{
+		std::cout << text;
+		std::cout.flush();
+	}
 	void Debug::WriteLine(const std::string& text)
+	{
+		std::cout << text << std::endl;
+	}
+	void Debug::WriteLine(int text)
+	{
+		std::cout << text << std::endl;
+	}
+	void Debug::WriteLine(float text)
 	{
 		std::cout << text << std::endl;
 	}

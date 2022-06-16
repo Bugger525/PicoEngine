@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PicoEngine\Debug.h" />
+    <ClInclude Include="PicoEngine\Game.h" />
     <ClInclude Include="PicoEngine\GameWindow.h" />
     <ClInclude Include="PicoEngine\Graphics.h" />
     <ClInclude Include="PicoEngine\Input.h" />

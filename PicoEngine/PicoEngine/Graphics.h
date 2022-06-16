@@ -2,6 +2,7 @@
 
 #include <string>
 #include <vector>
+#include "Math.h"
 
 namespace PE
 {
@@ -19,7 +20,13 @@ namespace PE
 		Texture2D(const std::vector<std::string>& texture);
 
 		std::string& operator[](int index);
+
+		const Vector2i GetSize() const;
 	private:
 		std::vector<std::string> texture_;
+	};
+	class Renderer
+	{
+
 	};
 }
