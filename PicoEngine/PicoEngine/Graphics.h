@@ -24,21 +24,23 @@ namespace PE
 		const std::string ToString() const;
 		void Set(TextStyles textStyle = TextStyles::Default, Colors foregroundColor = Colors::White, Colors backgroundColor = Colors::Black);
 	};
-	class Texture2D
+	class Texture
 	{
 	public:
-		Texture2D(const std::vector<std::string>& texture);
+		Texture();
+		Texture(const std::vector<std::string>& texture);
 
 		StyledString& operator[](int index);
 
-		const Vector2i GetSize() const;
+		const Vector2i& GetSize() const;
+		void Set(const std::vector<std::string>& texture);
 	private:
 		std::vector<StyledString> texture_;
 	};
 	class Renderer
 	{
 	public:
-		static void Draw(Texture2D& texture)
+		static void Draw(Texture& texture)
 		{
 			for (int i = 0; i < texture.GetSize().Y; i++)
 			{

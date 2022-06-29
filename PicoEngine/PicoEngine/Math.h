@@ -6,7 +6,7 @@ namespace PE
 
 	struct Vector2i
 	{
-		int X;
-		int Y;
+		int X = 0;
+		int Y = 0;
 	};
 }

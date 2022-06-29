@@ -1,4 +1,5 @@
 #include "../PicoEngine/GameWindow.h"
+#include "../PicoEngine/Game.h"
 #include "../PicoEngine/Graphics.h"
 #include "../PicoEngine/Debug.h"
 #include "../PicoEngine/Input.h"
@@ -14,13 +15,9 @@ protected:
 
 		base::Initialize();
 
-		auto tex = PE::Texture2D({
-			" | | ",
-			"<-U->"
-			});
-		tex[0].Set(PE::TextStyles::Underline, PE::Colors::LightBlue);
+		auto object = PE::Object("o1_test");
+		auto rigidBody = PE::RigidBody("r1_test");
 
-		PE::Renderer::Draw(tex);
 		Exit();
 	}
 	void Update(float deltaTime) override

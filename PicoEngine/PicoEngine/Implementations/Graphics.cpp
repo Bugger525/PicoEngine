@@ -21,18 +21,19 @@ namespace PE
 		ForegroundColor = foregroundColor;
 		BackgroundColor = backgroundColor;
 	}
-	Texture2D::Texture2D(const std::vector<string>& texture)
+	Texture::Texture() { }
+	Texture::Texture(const std::vector<string>& texture)
 	{
 		for (const auto& line : texture)
 		{
 			texture_.push_back(StyledString{ line });
 		}
 	}
-	StyledString& Texture2D::operator[](int index)
+	StyledString& Texture::operator[](int index)
 	{
 		return texture_[index];
 	}
-	const Vector2i Texture2D::GetSize() const
+	const Vector2i& Texture::GetSize() const
 	{
 		int x = 0;
 		for (const auto& line : texture_)
@@ -43,5 +44,12 @@ namespace PE
 		int y = texture_.size();
 
 		return Vector2i{ x, y };
+	}
+	void Texture::Set(const std::vector<std::string>& texture)
+	{
+		for (const auto& line : texture)
+		{
+			texture_.push_back(StyledString{ line });
+		}
 	}
 }
