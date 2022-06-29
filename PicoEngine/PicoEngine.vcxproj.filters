@@ -33,6 +33,9 @@
     <ClCompile Include="PicoEngine\Implementations\Input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PicoEngine\Implementations\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PicoEngine\GameWindow.h">

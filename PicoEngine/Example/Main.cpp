@@ -14,22 +14,13 @@ protected:
 
 		base::Initialize();
 
-		auto tex = PE::Texture2D(
-			{
-				PE::Style("  ^", PE::Colors::LightYellow, PE::Colors::Black, PE::TextStyles::Default),
-				PE::Style("  |", PE::Colors::Gray, PE::Colors::Black, PE::TextStyles::Default),
-				PE::Style("<-v->", PE::Colors::Gray, PE::Colors::Black, PE::TextStyles::Default),
+		auto tex = PE::Texture2D({
+			" | | ",
+			"<-U->"
 			});
-		// Oh shit X is including ansi characters lmao
-		PE::Debug::Write(tex.GetSize().X);
-		PE::Debug::Write(tex.GetSize().Y);
+		tex[0].Set(PE::TextStyles::Underline, PE::Colors::LightBlue);
 
-		bool flag = false;
-		do
-		{
-			flag = PE::Input::GetKeyDown(PE::Keys::Any);
-		} while (flag == false);
-
+		PE::Renderer::Draw(tex);
 		Exit();
 	}
 	void Update(float deltaTime) override
@@ -37,10 +28,11 @@ protected:
 	}
 	void Render(float deltaTime) override
 	{
-
 	}
 	void Cleanup() override
 	{
+		PE::Debug::WriteLine("Press any key to end program.");
+		PE::Input::GetKeyDown(PE::Keys::Any);
 	}
 };
 int main()

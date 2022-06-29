@@ -11,7 +11,7 @@ namespace PE
 	GameWindow::GameWindow()
 	{
 		title_ = "PicoEngine";
-		size_ = Vector2i(80, 25);
+		size_ = { 80, 25 };
 		isOpen_ = false;
 		debugMode_ = false;
 		frameRate_ = 30;

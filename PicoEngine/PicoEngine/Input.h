@@ -13,7 +13,9 @@ namespace PE
 	{
 	public:
 		static bool GetKeyDown(Keys key);
+		static bool GetKeyDownAsync(Keys key);
 
 		static bool GetKeyUp(Keys key);
+		static bool GetKeyUpAsync(Keys key);
 	};
 }

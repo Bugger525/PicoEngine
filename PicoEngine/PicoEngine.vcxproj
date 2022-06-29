@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Example\Main.cpp" />
     <ClCompile Include="PicoEngine\Implementations\Debug.cpp" />
+    <ClCompile Include="PicoEngine\Implementations\Game.cpp" />
     <ClCompile Include="PicoEngine\Implementations\GameWindow.cpp" />
     <ClCompile Include="PicoEngine\Implementations\Graphics.cpp" />
     <ClCompile Include="PicoEngine\Implementations\Input.cpp" />

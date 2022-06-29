@@ -18,15 +18,15 @@ namespace PE
 	}
 	void Debug::Log(const std::string& text)
 	{
-		std::cout << Style('[' + GetCurrentTime() + ']', Colors::Yellow, Colors::Black, TextStyles::Underline) << ' ' << text << std::endl;
+		std::cout << StyledString{ '[' + GetCurrentTime() + ']', TextStyles::Underline, Colors::Yellow, Colors::Black }.ToString() << ' ' << text << std::endl;
 	}
 	void Debug::Log(int text)
 	{
-		std::cout << Style('[' + GetCurrentTime() + ']', Colors::Yellow, Colors::Black, TextStyles::Underline) << ' ' << text << std::endl;
+		std::cout << StyledString{ '[' + GetCurrentTime() + ']', TextStyles::Underline, Colors::Yellow, Colors::Black }.ToString() << ' ' << text << std::endl;
 	}
 	void Debug::Log(float text)
 	{
-		std::cout << Style('[' + GetCurrentTime() + ']', Colors::Yellow, Colors::Black, TextStyles::Underline) << ' ' << text << std::endl;
+		std::cout << StyledString{ '[' + GetCurrentTime() + ']', TextStyles::Underline, Colors::Yellow, Colors::Black }.ToString() << ' ' << text << std::endl;
 	}
 	void Debug::Write(const std::string& text)
 	{
