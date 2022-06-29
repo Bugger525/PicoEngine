@@ -10,13 +10,14 @@ namespace PE
 	public:
 		GameWindow();
 
+		const Vector2i& GetSize() const;
+
 		void Run();
 	protected:
 		const std::string GetTitle() const;
 		void InitTitle(const std::string& title);
 		void SetTitle(const std::string& title);
 
-		const Vector2i& GetSize() const;
 		void InitSize(uint width, uint height);
 		void SetSize(uint width, uint height);
 		void SetSize(const Vector2i& size);

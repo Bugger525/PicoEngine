@@ -15,8 +15,7 @@ protected:
 
 		base::Initialize();
 
-		auto object = PE::Object("o1_test");
-		auto rigidBody = PE::RigidBody("r1_test");
+		auto obj = PE::Object({}, {});
 
 		Exit();
 	}

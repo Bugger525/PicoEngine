@@ -1,19 +1,18 @@
 #include "../Game.h"
+#include "../GameWindow.h"
 #include <Windows.h>
 
 namespace PE
 {
-	Object::Object(const std::string& name)
+	Object::Object(int x, int y, int width, int height)
 	{
-		name_ = name;
+		position_ = { x, y };
+		size_ = { width, height };
 	}
-	const std::string Object::GetName() const
+	Object::Object(const Vector2i& position, const Vector2i& size)
 	{
-		return name_;
-	}
-	void Object::SetName(const std::string& name)
-	{
-		name_ = name;
+		position_ = position;
+		size_ = size;
 	}
 	const Vector2i& Object::GetPosition() const
 	{
@@ -58,8 +57,12 @@ namespace PE
 	{
 		texture_.Set(strVector);
 	}
-	RigidBody::RigidBody(const std::string& name)
-		: Object(name)
+	RigidBody::RigidBody(int x, int y, int width, int height)
+		: Object(x, y, width, height)
+	{
+	}
+	RigidBody::RigidBody(const Vector2i& position, const Vector2i& size)
+		: Object(position, size)
 	{
 	}
 	const Vector2i& RigidBody::GetVelocity() const
@@ -83,6 +86,40 @@ namespace PE
 	{
 		velocity_.X += force.X;
 		velocity_.Y += force.Y;
+	}
+	Camera::Camera(int x, int y, int width, int height)
+	{
+		position_ = { x, y };
+		size_ = { width, height };
+	}
+	Camera::Camera(const Vector2i& position, const Vector2i& size)
+	{
+		position_ = position;
+		size_ = size;
+	}
+	const Vector2i& Camera::GetPosition() const
+	{
+		return position_;
+	}
+	void Camera::SetPosition(int x, int y)
+	{
+		position_ = { x, y };
+	}
+	void Camera::SetPosition(const Vector2i& position)
+	{
+		position_ = position;
+	}
+	const Vector2i& Camera::GetSize() const
+	{
+		return size_;
+	}
+	void Camera::SetSize(int x, int y)
+	{
+		size_ = { x, y };
+	}
+	void Camera::SetSize(const Vector2i& size)
+	{
+		size_ = size;
 	}
 	void Sleep(int seconds)
 	{

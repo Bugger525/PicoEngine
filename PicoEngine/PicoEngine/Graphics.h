@@ -4,9 +4,11 @@
 #include <vector>
 #include "Math.h"
 
-#include <iostream>
 namespace PE
 {
+	class Object;
+	class Camera;
+
 	enum class TextStyles { Default = -1, Bold = 1, Underline = 4, Reversed = 7, Reset = 0 };
 	enum class Colors
 	{
@@ -40,13 +42,9 @@ namespace PE
 	class Renderer
 	{
 	public:
-		static void Draw(Texture& texture)
-		{
-			for (int i = 0; i < texture.GetSize().Y; i++)
-			{
-				std::cout << texture[i].ToString() << "\n";
-			}
-			std::cout.flush();
-		}
+		static void Draw(const Object& object);
+		static void Draw(const std::vector<const Object&>& objects);
+		static void Draw(const Camera& camera, const Object& object);
+		static void Draw(const Camera& camera, const std::vector<const Object&>& objects);
 	};
 }

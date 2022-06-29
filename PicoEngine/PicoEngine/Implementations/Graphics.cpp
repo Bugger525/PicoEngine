@@ -1,4 +1,5 @@
 #include "../Graphics.h"
+#include "../Game.h"
 
 #include <sstream>
 
@@ -52,4 +53,5 @@ namespace PE
 			texture_.push_back(StyledString{ line });
 		}
 	}
+	void Renderer::Draw()
 }

@@ -8,13 +8,13 @@
 
 namespace PE
 {
+	class GameWindow;
+
 	class Object
 	{
 	public:
-		Object(const std::string& name);
-
-		const std::string GetName() const;
-		void SetName(const std::string& name);
+		Object(int x = 0, int y = 0, int width = 1, int height = 1);
+		Object(const Vector2i& position, const Vector2i& size);
 
 		const Vector2i& GetPosition() const;
 		void SetPosition(int x, int y);
@@ -29,7 +29,6 @@ namespace PE
 		void SetTexture(const std::vector<StyledString>& styledStrVector);
 		void SetTexture(const std::vector<std::string>& strVector);
 	protected:
-		std::string name_;
 		Vector2i position_;
 		Vector2i size_;
 		Texture texture_;
@@ -37,7 +36,8 @@ namespace PE
 	class RigidBody : public Object
 	{
 	public:
-		RigidBody(const std::string& name);
+		RigidBody(int x = 0, int y = 0, int width = 1, int height = 1);
+		RigidBody(const Vector2i& position, const Vector2i& size);
 
 		const Vector2i& GetVelocity() const;
 		void SetVelocity(int x, int y);
@@ -48,16 +48,22 @@ namespace PE
 	private:
 		Vector2i velocity_;
 	};
-	class Scene
-	{
-	public:
-
-	private:
-		std::vector<Object> objects_;
-	};
 	class Camera
 	{
+	public:
+		Camera(int x, int y, int width, int height);
+		Camera(const Vector2i& position, const Vector2i& size);
 
+		const Vector2i& GetPosition() const;
+		void SetPosition(int x, int y);
+		void SetPosition(const Vector2i& position);
+
+		const Vector2i& GetSize() const;
+		void SetSize(int x, int y);
+		void SetSize(const Vector2i& size);
+	private:
+		Vector2i position_;
+		Vector2i size_;
 	};
 	void Sleep(int seconds);
 }
