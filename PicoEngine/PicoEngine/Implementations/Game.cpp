@@ -38,24 +38,9 @@ namespace PE
 	{
 		size_ = size;
 	}
-	const Texture& Object::GetTexture() const
+	Texture& Object::GetTexture()
 	{
 		return texture_;
-	}
-	void Object::SetTexture(const Texture& texture)
-	{
-		texture_ = texture;
-	}
-	void Object::SetTexture(const std::vector<StyledString>& styledStrVector)
-	{
-		for (auto i = 0; i < styledStrVector.size(); i++)
-		{
-			texture_[i] = styledStrVector[i];
-		}
-	}
-	void Object::SetTexture(const std::vector<std::string>& strVector)
-	{
-		texture_.Set(strVector);
 	}
 	RigidBody::RigidBody(int x, int y, int width, int height)
 		: Object(x, y, width, height)

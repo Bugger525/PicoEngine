@@ -1,4 +1,5 @@
 #include "../GameWindow.h"
+#include "../Graphics.h"
 #include <cmath>
 #include <sstream>
 #include <Windows.h>
@@ -118,5 +119,9 @@ namespace PE
 		SetConsoleMode(hOut, dwMode);
 
 		endOfInit_ = true;
+	}
+	void GameWindow::Update(float deltaTime)
+	{
+		// erase things
 	}
 }

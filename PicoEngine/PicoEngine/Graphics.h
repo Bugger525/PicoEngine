@@ -15,6 +15,10 @@ namespace PE
 		Black = 30, Red, Green, Yellow, Blue, Magenta, Cyan, White,
 		Gray = 90, LightRed, LightGreen, LightYellow, LightBlue, LightMagenta, LightCyan, LightWhite
 	};
+
+	void SetCursorPosition(int x, int y);
+	void SetCursorPosition(const Vector2i& position);
+
 	struct StyledString
 	{
 		std::string Text = "";
@@ -42,9 +46,14 @@ namespace PE
 	class Renderer
 	{
 	public:
-		static void Draw(const Object& object);
-		static void Draw(const std::vector<const Object&>& objects);
-		static void Draw(const Camera& camera, const Object& object);
-		static void Draw(const Camera& camera, const std::vector<const Object&>& objects);
+		static void Draw(Object& object);
+		static void Draw(const std::vector<Object>& objects);
+		static void Draw(const Camera& camera, Object& object);
+		static void Draw(const Camera& camera, const std::vector<Object>& objects);
+
+		static void Erase(Object& object);
+		static void Erase(const std::vector<Object>& objects);
+		static void Erase(const Camera& camera, Object& object);
+		static void Erase(const Camera& camera, const std::vector<Object>& objects);
 	};
 }

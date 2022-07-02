@@ -29,7 +29,7 @@ namespace PE
 		void Exit();
 
 		virtual void Initialize();
-		virtual void Update(float deltaTime) = 0;
+		virtual void Update(float deltaTime);
 		virtual void Render(float deltaTime) = 0;
 		virtual void Cleanup() = 0;
 	private:

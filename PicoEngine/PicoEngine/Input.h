@@ -17,5 +17,7 @@ namespace PE
 
 		static bool GetKeyUp(Keys key);
 		static bool GetKeyUpAsync(Keys key);
+	private:
+		Input();
 	};
 }

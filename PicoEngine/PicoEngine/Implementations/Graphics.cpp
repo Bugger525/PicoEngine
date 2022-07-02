@@ -1,12 +1,25 @@
 #include "../Graphics.h"
 #include "../Game.h"
+#include "../Debug.h"
 
 #include <sstream>
+#include <iostream>
+#include <Windows.h>
 
 using std::string;
 
 namespace PE
 {
+	void SetCursorPosition(int x, int y)
+	{
+		COORD pos = { x, y };
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+	}
+	void SetCursorPosition(const Vector2i& position)
+	{
+		COORD pos = { position.X, position.Y };
+		SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+	}
 	const string StyledString::ToString() const
 	{
 		std::stringstream ss;
@@ -53,5 +66,19 @@ namespace PE
 			texture_.push_back(StyledString{ line });
 		}
 	}
-	void Renderer::Draw()
+	void Renderer::Draw(Object& object)
+	{
+		CONSOLE_SCREEN_BUFFER_INFO csbi;
+
+		GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+		Vector2i size = { csbi.srWindow.Right - csbi.srWindow.Left + 1, csbi.srWindow.Bottom - csbi.srWindow.Top + 1 };
+
+		if (size < object.GetPosition())
+			return;
+		for (auto y = 0; y < object.GetTexture().GetSize().Y; y++)
+		{
+			SetCursorPosition(object.GetPosition().X, object.GetPosition().Y + y);
+			std::cout << object.GetTexture()[y].ToString();
+		}
+	}
 }

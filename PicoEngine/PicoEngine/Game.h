@@ -8,8 +8,6 @@
 
 namespace PE
 {
-	class GameWindow;
-
 	class Object
 	{
 	public:
@@ -24,10 +22,7 @@ namespace PE
 		void SetSize(int x, int y);
 		void SetSize(const Vector2i& size);
 
-		const Texture& GetTexture() const;
-		void SetTexture(const Texture& texture);
-		void SetTexture(const std::vector<StyledString>& styledStrVector);
-		void SetTexture(const std::vector<std::string>& strVector);
+		Texture& GetTexture();
 	protected:
 		Vector2i position_;
 		Vector2i size_;
